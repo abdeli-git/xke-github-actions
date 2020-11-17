@@ -1,5 +1,5 @@
-FROM nginx:<CHOOSE_VERSION>
+FROM nginx:latest
 
-COPY ./dist/ /usr/share/nginx/html/
+COPY ./Dist/ /usr/share/nginx/html/
 
 CMD ["nginx", "-g", "daemon off;"]
