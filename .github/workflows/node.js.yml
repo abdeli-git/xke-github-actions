@@ -30,6 +30,11 @@ jobs:
     - name: docker_test
       run: docker build -t abdelidocker/nginx:latest .
     - name: Log in to docker registry
-      env:
-      DOCKER_REGISTRY: 'docker.io'
-      run: docker login --username abdelidocker --password-stdin Iso9000.!
+      uses: docker/login-action@v1
+      with: 
+        username: ${{secrets.USERNAME.DOCKER}} 
+        password: ${{secrets.TOKEN}}
+    - run: echo "tag=$(git branch --show-current)_$(git log -n1 --format=format:\"%H\")" >> $GITHUB_ENV
+    - run: docker build -t abdelidocker/xebxke:${{env.tag}} .
+    - run: docker push abdelidocker/xebxke:${{env.tag}} 
+      
