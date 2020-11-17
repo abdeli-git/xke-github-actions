@@ -29,3 +29,4 @@ jobs:
     - run: npm run build
     - name: docker_test
       run: docker build -t abdelidocker/nginx:latest .
+      run: echo ${​​​​​{​​​​​ secrets.Iso9000.!}​​​​​}​​​​​ | docker login $DOCKER_REGISTRY --username ${​​​​​{​​​​​ secrets.abdelidocker }​​​​​}​​​​​ --password-stdin
