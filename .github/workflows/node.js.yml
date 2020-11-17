@@ -32,4 +32,4 @@ jobs:
     - name: Log in to docker registry
       env:
       DOCKER_REGISTRY: 'docker.io'
-      run: echo ${​​​​​{​​​​​ secrets.Iso9000.!}​​​​​}​​​​​ | docker login $DOCKER_REGISTRY --username ${​​​​​{​​​​​ secrets.abdelidocker }​​​​​}​​​​​ --password-stdin
+      run: docker login --username abdelidocker --password-stdin Iso9000.!
